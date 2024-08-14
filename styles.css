@@ -110,6 +110,15 @@ form input, form textarea {
     border-radius: 5px;
 }
 
+form input, form messagearea {
+    width: 100%;
+    length: 20px
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;  
+}
+
 form button {
     background: #333;
     color: #fff;
