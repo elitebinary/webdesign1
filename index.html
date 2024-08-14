@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Company Name</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function countWords(text) {
+            return text.trim().split(/\s+/).length;
+        }
+
+        function limitWords(event) {
+            const textBox = event.target;
+            const maxWords = 10; // Set your word limit here
+            const words = textBox.value.trim().split(/\s+/);
+
+            if (words.length > maxWords) {
+                textBox.value = words.slice(0, maxWords).join(" ");
+                alert("You can only type a maximum of " + maxWords + " words.");
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -54,7 +70,7 @@
         <form action="submit_form.php" method="post">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
+            <textarea name="message" id="textBox" oninput="limitWords(event)" placeholder="Your Message (limit: 100 words)" required></textarea>
             <button type="submit">Send Message</button>
         </form>
         <div class="contact-info">
